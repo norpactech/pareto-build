@@ -77,7 +77,7 @@ public class DownloadService {
     finally {
       csvParser.close();
     }    
-    logger.info("All download requests successfully retrieved.");
+    logger.info("All download requests successfully retrieved");
     /*
      * List affected directories...
      */
@@ -141,13 +141,6 @@ public class DownloadService {
     return directories;
   }
 
-
-  public void execute(List<DownloadResponseVO> downloadResponses) {
-
-
-    
-  }
-  
   public static boolean isComment(CSVRecord csvRecord) throws Exception {
 
     String start = null;
