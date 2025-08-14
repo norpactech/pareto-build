@@ -5,7 +5,6 @@ package com.norpactech.pf.build.service;
  * For license details, see the LICENSE file in this project root.
  */
 import java.io.ByteArrayInputStream;
-import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -36,12 +35,12 @@ public class DownloadService {
 
   public static int downloadRequest(String username, String password, String paretoServerUrl, String buildFile) throws Exception {
 
-    JwtRequestVO jwtRequest = new JwtRequestVO(username, password);
-    String jwt = AuthUtils.getJwt(jwtRequest);
+    var jwtRequest = new JwtRequestVO(username, password);
+    var jwt = AuthUtils.getJwt(paretoServerUrl + "/access-token", jwtRequest);
 
-    Reader reader = Files.newBufferedReader(Paths.get(buildFile));
+    var reader = Files.newBufferedReader(Paths.get(buildFile));
     var csvParser = new CSVParser(reader, CSVFormat.DEFAULT.builder().setHeader().setSkipHeaderRecord(true).build());
-    List<DownloadResponseVO> downloadResponses = new ArrayList<DownloadResponseVO>(); 
+    var downloadResponses = new ArrayList<DownloadResponseVO>(); 
     
     try {
 
