@@ -21,7 +21,6 @@ public class Application {
     String password   = System.getenv("PARETO_PASSWORD");
     String buildFile  = System.getenv("PARETO_BUILD_FILE");
     String factoryURL = System.getenv("PARETO_FACTORY_URL");
-    String tokenURL   = System.getenv("PARETO_TOKEN_URL");
 
     logger.info("Beginning Pareto Build");
 
@@ -45,10 +44,6 @@ public class Application {
       System.exit(1);
     }
 
-    if (StringUtils.isEmpty(tokenURL)) {
-      logger.error("Null or empty Access Token URL. Set environment variable: PARETO_TOKEN_URL. Terminating...");
-      System.exit(1);
-    }    
     logger.info("Pareto Build using file: {}", buildFile);
     int retVal = DownloadService.downloadRequest(username, password, factoryURL, buildFile);
     logger.info("Completed Pareto Build");
