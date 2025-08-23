@@ -18,7 +18,7 @@ public class Cardinality {
   private UUID idObjectReference;
   private UUID idRtCardinality;
   private UUID idRtCardinalityStrength;
-  private Boolean hasReferencialAction;
+  private Boolean hasReferentialAction;
   private Date createdAt;
   private String createdBy;
   private Date updatedAt;
@@ -33,7 +33,7 @@ public class Cardinality {
     UUID idObjectReference,
     UUID idRtCardinality,
     UUID idRtCardinalityStrength,
-    Boolean hasReferencialAction,
+    Boolean hasReferentialAction,
     Date createdAt,
     String createdBy,
     Date updatedAt,
@@ -45,7 +45,7 @@ public class Cardinality {
     this.idObjectReference = idObjectReference;
     this.idRtCardinality = idRtCardinality;
     this.idRtCardinalityStrength = idRtCardinalityStrength;
-    this.hasReferencialAction = hasReferencialAction;
+    this.hasReferentialAction = hasReferentialAction;
     this.createdAt = createdAt;
     this.createdBy = createdBy;
     this.updatedAt = updatedAt;
@@ -95,12 +95,12 @@ public class Cardinality {
     return this.idRtCardinalityStrength = idRtCardinalityStrength;
   }    
     
-  public Boolean getHasReferencialAction() {
-    return this.hasReferencialAction;
+  public Boolean getHasReferentialAction() {
+    return this.hasReferentialAction;
   }
     
-  public Boolean setHasReferencialAction(Boolean hasReferencialAction) {
-    return this.hasReferencialAction = hasReferencialAction;
+  public Boolean setHasReferentialAction(Boolean hasReferentialAction) {
+    return this.hasReferentialAction = hasReferentialAction;
   }    
     
   public Date getCreatedAt() {
