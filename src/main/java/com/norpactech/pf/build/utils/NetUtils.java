@@ -45,6 +45,7 @@ public class NetUtils {
           .addHeader("Accept", "application/json")
           .addHeader("Content-Type", "application/json")
           .addHeader("Authorization", "Bearer " + jwt)
+          .addHeader("X-Tenant-ID", System.getenv("PARETO_TENANT_UUID"))
           .build();
       response = client.newCall(request).execute();       
     } 

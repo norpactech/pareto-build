@@ -21,6 +21,7 @@ public class Application {
     String password   = System.getenv("PARETO_PASSWORD");
     String buildFile  = System.getenv("PARETO_BUILD_FILE");
     String factoryURL = System.getenv("PARETO_FACTORY_URL");
+    String idTenant   = System.getenv("PARETO_TENANT_UUID");
 
     logger.info("Beginning Pareto Build");
 
@@ -44,6 +45,11 @@ public class Application {
       System.exit(1);
     }
 
+    if (StringUtils.isEmpty(idTenant)) {
+      logger.error("Null or empty Tenant UUID. Set environment variable: PARETO_TENANT_UUID. Terminating...");
+      System.exit(1);
+    }
+    
     logger.info("Pareto Build using file: {}", buildFile);
     int retVal = DownloadService.downloadRequest(username, password, factoryURL, buildFile);
     logger.info("Completed Pareto Build");
